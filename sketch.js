@@ -11,7 +11,7 @@ function setup() {
   createCanvas(800, 700);
   engine = Engine.create()
   world = engine.world
-  fill("white")
+  
   box1 = new Box(650,640,200,10)
   
 
@@ -20,7 +20,7 @@ function setup() {
   ball = new Ball(100,650,40,40)
  
   ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true, friction:2} );
-  ground.shapecolor = "yellow"
+ 
  	World.add(world, ground);
 
   
@@ -37,6 +37,7 @@ function draw() {
   box2.display();
   box3.display();
   ball.display();
+  fill("yellow")
   rect(ground.position.x,ground.position.y,width,10)
   drawSprites();
  
@@ -44,7 +45,7 @@ function draw() {
 function KeyPressed(){
   if (keyCode === UP_ARROW) {
   
-    Matter.Body.setStatic(ball,false);
+    Matter.Body.applyforce(ball.body,ball.body.position,{x:85,y:85});
   }
 }
 
