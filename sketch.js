@@ -17,7 +17,7 @@ function setup() {
 
 	box2 = new Box(550,540,10,200)
   box3 = new Box(750,540,10,200)
-  ball = new Ball(100,650,40,40)
+  ball = new Ball(100,640,40)
  
   ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true, friction:2} );
  
@@ -45,7 +45,7 @@ function draw() {
 function KeyPressed(){
   if (keyCode === UP_ARROW) {
   
-    Matter.Body.applyforce(ball.body,ball.body.position,{x:85,y:85});
+    Matter.Body.applyForce(ball.body,ball.body.position,{x:85,y:85});
   }
 }
 
