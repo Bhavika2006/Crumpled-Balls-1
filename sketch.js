@@ -11,11 +11,16 @@ function setup() {
   createCanvas(800, 700);
   engine = Engine.create()
   world = engine.world
-  box1 = new Box(400,650,400,10)
-	box2 = new Box(100,500,10,300)
-  box3 = new Box(500,500,10,300)
+  fill("white")
+  box1 = new Box(650,640,200,10)
+  
+
+	box2 = new Box(550,540,10,200)
+  box3 = new Box(750,540,10,200)
   ball = new Ball(100,650,40,40)
+ 
   ground = Bodies.rectangle(width/2, 650, width, 10 , {isStatic:true, friction:2} );
+  ground.shapecolor = "yellow"
  	World.add(world, ground);
 
   
@@ -32,7 +37,7 @@ function draw() {
   box2.display();
   box3.display();
   ball.display();
-  
+  rect(ground.position.x,ground.position.y,width,10)
   drawSprites();
  
 }
